@@ -9,16 +9,16 @@ async function main() {
     "CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE)",
   );
   try {
-    await run_query(db, "INSERT INTO book(title) VALUES(?)", ["Test"]);
+    await run_query(db, "INSERT INTO book(title) VALUES(?)", ["SampleBook"]);
   } catch (e) {
-    if (e instanceof Error && e.errno === 1 && e.code === "SQLITE_ERROR") {
+    if (e instanceof Error) {
       console.log(e.message);
     }
   }
   try {
     await get_all(db, "SELECT books_id FROM books");
   } catch (e) {
-    if (e instanceof Error && e.errno === 1 && e.code === "SQLITE_ERROR") {
+    if (e instanceof Error) {
       console.log(e.message);
     }
   }
