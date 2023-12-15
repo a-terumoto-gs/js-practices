@@ -12,9 +12,8 @@ function main() {
         db.all("SELECT * FROM books", (_err, books) => {
           console.log(`book_info`)
           console.log(books);
-          db.run("DROP TABLE books", () => {
-            db.close();
-          });
+          db.run("DROP TABLE books");
+          db.close();
         });
       });
     },
