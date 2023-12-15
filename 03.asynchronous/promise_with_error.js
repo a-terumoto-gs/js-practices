@@ -9,14 +9,12 @@ function main() {
       run_query(db, "INSERT INTO book(title) VALUES(?)", ["SampleBook"]))
     .catch((err) => {
       console.error(err.message);
-      throw err;
     })
 
     .then(() => 
-      get_all(db, "SELECT * FROM books"))
+      get_all(db, "SELECT books_id FROM books"))
     .catch((err) => {
       console.error(err.message);
-      throw err;
     })
 
     .then(() => {
