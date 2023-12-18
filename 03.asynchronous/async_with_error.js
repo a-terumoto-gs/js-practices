@@ -9,7 +9,9 @@ async function main() {
     "CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE)",
   );
   try {
-    await run_query(db, "INSERT INTO reports(title) VALUES(?)", ["SampleReport"]);
+    await run_query(db, "INSERT INTO reports(title) VALUES(?)", [
+      "SampleReport",
+    ]);
   } catch (e) {
     if (e instanceof Error) {
       console.log(e.message);
