@@ -9,7 +9,7 @@ function main() {
     "CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE)",
   )
     .then(() =>
-      run_query(db, "INSERT INTO reports(title) VALUES(?)", ["SampleBook"]),
+      run_query(db, "INSERT INTO reports(title) VALUES(?)", ["SampleReport"]),
     )
     .catch((err) => {
       console.error(err.message);
