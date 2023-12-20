@@ -1,8 +1,8 @@
-import sqlite3 from 'sqlite3';
+import sqlite3 from "sqlite3";
 
 class DB {
   constructor() {
-    this.db = new sqlite3.Database('memos.db');
+    this.db = new sqlite3.Database("memos.db");
     this.initDatabase();
   }
 
@@ -18,12 +18,12 @@ class DB {
   }
 
   addMemo(content) {
-    this.db.run('INSERT INTO memos (content) VALUES (?)', [content]);
+    this.db.run("INSERT INTO memos (content) VALUES (?)", [content]);
   }
 
   listMemos() {
     return new Promise((resolve, reject) => {
-      this.db.all('SELECT * FROM memos', (err, rows) => {
+      this.db.all("SELECT * FROM memos", (err, rows) => {
         if (err) {
           reject(err);
         } else {
@@ -35,7 +35,7 @@ class DB {
 
   getMemo(id) {
     return new Promise((resolve, reject) => {
-      this.db.get('SELECT * FROM memos WHERE id = ?', [id], (err, row) => {
+      this.db.get("SELECT * FROM memos WHERE id = ?", [id], (err, row) => {
         if (err) {
           reject(err);
         } else {
@@ -46,7 +46,7 @@ class DB {
   }
 
   deleteMemo(id) {
-    this.db.run('DELETE FROM memos WHERE id = ?', [id]);
+    this.db.run("DELETE FROM memos WHERE id = ?", [id]);
   }
 }
 
