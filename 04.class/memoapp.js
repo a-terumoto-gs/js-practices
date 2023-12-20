@@ -65,8 +65,8 @@ class MemoApp {
       choices,
     });
 
-    const selectedNote = memos.find((memo) =>
-      memo.content.startsWith(selectedMemo),
+    const selectedNote = memos.find(
+      (memo) => memo.content.split("\n")[0] === selectedMemo,
     );
     if (selectedNote) {
       console.log(selectedNote.content);
@@ -94,7 +94,7 @@ class MemoApp {
 
     if (confirm) {
       const selectedNote = memos.find((memo) =>
-        memo.content.startsWith(selectedMemo),
+        memo.content.split("\n")[0] === selectedMemo,
       );
       this.db.deleteMemo(selectedNote.id);
       console.log(`"${selectedMemo}"を削除しました`);
