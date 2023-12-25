@@ -7,10 +7,9 @@ function main() {
     "CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE)",
     function () {
       db.run("INSERT INTO books(title) VALUES(?)", ["SampleBook"], function () {
-        console.log(`record_id: ${this.lastID}`);
+        console.log(`id: ${this.lastID}`);
         db.all("SELECT * FROM books", (_err, books) => {
-          console.log(`book_info`);
-          console.log(books);
+          console.log('BookInfo', books);
           db.run("DROP TABLE books", function () {
             db.close();
           });

@@ -11,10 +11,9 @@ async function main() {
   const book = await runQuery(db, "INSERT INTO books(title) VALUES(?)", [
     "SampleBook",
   ]);
-  console.log(`record_id: ${book.lastID}`);
+  console.log(`id: ${book.lastID}`);
   const books = await getAll(db, "SELECT * FROM books");
-  console.log(`book_info`);
-  console.log(books);
+  console.log('BookInfo', books);
   await runQuery(db, "DROP TABLE books");
   await closeDb(db);
 }

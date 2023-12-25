@@ -15,13 +15,12 @@ function main() {
     })
 
     .then((book) => {
-      console.log(`record_id: ${book.lastID}`);
-      console.log("book_info");
+      console.log(`id: ${book.lastID}`);
       return getAll(db, "SELECT * FROM books");
     })
 
     .then((books) => {
-      console.log(books);
+      console.log('BookInfo', books);
       return runQuery(db, "DROP TABLE books");
     })
 
