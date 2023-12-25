@@ -20,7 +20,7 @@ function main() {
     })
 
     .then((books) => {
-      console.log('BookInfo', books);
+      console.log(`BookInfo`, books);
       return runQuery(db, "DROP TABLE books");
     })
 
