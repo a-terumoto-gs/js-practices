@@ -12,16 +12,16 @@ async function main() {
     await runQuery(db, "INSERT INTO reports(title) VALUES(?)", [
       "SampleReport",
     ]);
-  } catch (e) {
-    if (e instanceof Error) {
-      console.log(e.message);
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error(err.message);
     }
   }
   try {
     await getAll(db, "SELECT reports_id FROM books");
-  } catch (e) {
-    if (e instanceof Error) {
-      console.log(e.message);
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error(err.message);
     }
   }
   await runQuery(db, "DROP TABLE books");
