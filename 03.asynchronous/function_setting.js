@@ -4,7 +4,7 @@ export function runQuery(db, query, params = []) {
       if (err) {
         reject(err);
       } else {
-        resolve({ lastID: this.lastID });
+        resolve(this);
       }
     });
   });
