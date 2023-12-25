@@ -8,11 +8,8 @@ function main() {
     db,
     "CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE)",
   )
-    .then(() => {
-      return runQuery(db, "INSERT INTO books(title) VALUES(?)", [
-        "SampleBook",
-      ]);
-    })
+
+    .then(() => runQuery(db, "INSERT INTO books(title) VALUES(?)", ["SampleBook"]))
 
     .then((book) => {
       console.log(`id: ${book.lastID}`);
