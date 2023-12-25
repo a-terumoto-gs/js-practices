@@ -12,8 +12,8 @@ export function runQuery(db, query, params = []) {
 
 export function getAll(db, query, params = []) {
   return new Promise((resolve, reject) => {
-    db.all(query, params, function (err, book) {
-      if (err) {
+    db.all(query, params, (err, book) => {
+      if (err) { 
         reject(err);
       } else {
         resolve(book);
@@ -24,7 +24,7 @@ export function getAll(db, query, params = []) {
 
 export function closeDb(db) {
   return new Promise((resolve, reject) => {
-    db.close(function (err) {
+    db.close((err) => {
       if (err) {
         reject(err);
       } else {
