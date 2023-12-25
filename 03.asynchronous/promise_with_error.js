@@ -20,7 +20,7 @@ function main() {
       console.error(err.message);
       runQuery(db, "DROP TABLE books");
     })
-    
+
     .then(() => {
       closeDb(db);
     });
