@@ -12,11 +12,11 @@ export function runQuery(db, query, params = []) {
 
 export function getAll(db, query, params = []) {
   return new Promise((resolve, reject) => {
-    db.all(query, params, (err, book) => {
+    db.all(query, params, (err, results) => {
       if (err) { 
         reject(err);
       } else {
-        resolve(book);
+        resolve(results);
       }
     });
   });
