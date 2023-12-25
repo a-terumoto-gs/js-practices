@@ -13,17 +13,14 @@ function main() {
     )
     .catch((err) => {
       console.error(err.message);
+      return getAll(db, "SELECT report_id FROM books");
     })
 
-    .then(() => getAll(db, "SELECT report_id FROM books"))
     .catch((err) => {
       console.error(err.message);
-    })
-
-    .then(() => {
       runQuery(db, "DROP TABLE books");
     })
-
+    
     .then(() => {
       closeDb(db);
     });
