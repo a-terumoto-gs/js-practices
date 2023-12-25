@@ -1,4 +1,4 @@
-export function run_query(db, query, params = []) {
+export function runQuery(db, query, params = []) {
   return new Promise((resolve, reject) => {
     db.run(query, params, function (err) {
       if (err) {
@@ -10,7 +10,7 @@ export function run_query(db, query, params = []) {
   });
 }
 
-export function get_all(db, query, params = []) {
+export function getAll(db, query, params = []) {
   return new Promise((resolve, reject) => {
     db.all(query, params, function (err, book) {
       if (err) {
@@ -22,7 +22,7 @@ export function get_all(db, query, params = []) {
   });
 }
 
-export function close_db(db) {
+export function closeDb(db) {
   return new Promise((resolve, reject) => {
     db.close(function (err) {
       if (err) {

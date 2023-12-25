@@ -1,15 +1,15 @@
 import sqlite3 from "sqlite3";
-import { run_query, get_all, close_db } from "./function_preference.js";
+import { runQuery, getAll, closeDb } from "./function_setting.js";
 
 const db = new sqlite3.Database(":memory:");
 
 async function main() {
-  await run_query(
+  await runQuery(
     db,
     "CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE)",
   );
   try {
-    await run_query(db, "INSERT INTO reports(title) VALUES(?)", [
+    await runQuery(db, "INSERT INTO reports(title) VALUES(?)", [
       "SampleReport",
     ]);
   } catch (e) {
@@ -18,14 +18,14 @@ async function main() {
     }
   }
   try {
-    await get_all(db, "SELECT reports_id FROM books");
+    await getAll(db, "SELECT reports_id FROM books");
   } catch (e) {
     if (e instanceof Error) {
       console.log(e.message);
     }
   }
-  await run_query(db, "DROP TABLE books");
-  await close_db(db);
+  await runQuery(db, "DROP TABLE books");
+  await closeDb(db);
 }
 
 main();
