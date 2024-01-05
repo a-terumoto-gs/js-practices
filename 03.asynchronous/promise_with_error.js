@@ -17,11 +17,9 @@ function main() {
     })
     .catch((err) => {
       console.error(err.message);
-      runQuery(db, "DROP TABLE books");
+      return runQuery(db, "DROP TABLE books");
     })
-    .then(() => {
-      closeDb(db);
-    });
+    .then(() => closeDb(db));
 }
 
 main();
