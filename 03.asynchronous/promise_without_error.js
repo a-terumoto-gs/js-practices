@@ -11,17 +11,14 @@ function main() {
     .then(() =>
       runQuery(db, "INSERT INTO books(title) VALUES(?)", ["SampleBook"]),
     )
-
     .then((book) => {
       console.log(`id: ${book.lastID}`);
       return getAll(db, "SELECT * FROM books");
     })
-
     .then((books) => {
       console.log(`BookInfo`, books);
       return runQuery(db, "DROP TABLE books");
     })
-
     .then(() => {
       return closeDb(db);
     });
