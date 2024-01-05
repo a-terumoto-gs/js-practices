@@ -16,12 +16,10 @@ function main() {
       return getAll(db, "SELECT * FROM books");
     })
     .then((books) => {
-      console.log(`BookInfo ${JSON.stringify(books)}`);
+      console.log(`BookInfo ${books}`);
       return runQuery(db, "DROP TABLE books");
     })
-    .then(() => {
-      return closeDb(db);
-    });
+    .then(() => closeDb(db))
 }
 
 main();
