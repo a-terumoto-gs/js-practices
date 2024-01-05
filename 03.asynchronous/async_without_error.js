@@ -13,7 +13,7 @@ async function main() {
   ]);
   console.log(`id: ${book.lastID}`);
   const result = await getAll(db, "SELECT * FROM books");
-  console.log(`BookInfo`, result);
+  console.log(`books ${JSON.stringify(result)}`);
   await runQuery(db, "DROP TABLE books");
   await closeDb(db);
 }

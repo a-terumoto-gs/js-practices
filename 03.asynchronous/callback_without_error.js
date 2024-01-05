@@ -9,7 +9,7 @@ function main() {
       db.run("INSERT INTO books(title) VALUES(?)", ["SampleBook"], function () {
         console.log(`id: ${this.lastID}`);
         db.all("SELECT * FROM books", (_err, books) => {
-          console.log(`BookInfo`, books);
+          console.log(`books ${JSON.stringify(books)}`);
           db.run("DROP TABLE books", () => {
             db.close();
           });

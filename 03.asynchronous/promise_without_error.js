@@ -16,7 +16,7 @@ function main() {
       return getAll(db, "SELECT * FROM books");
     })
     .then((books) => {
-      console.log(`BookInfo ${JSON.stringify(books)}`);
+      console.log(`books ${JSON.stringify(books)}`);
       return runQuery(db, "DROP TABLE books");
     })
     .then(() => closeDb(db));
