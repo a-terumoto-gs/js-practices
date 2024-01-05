@@ -1,5 +1,5 @@
 import sqlite3 from "sqlite3";
-import { runQuery, getAll, closeDb } from "./function_setting.js";
+import { runQuery, getAll, closeDb } from "./common_operation_definition.js";
 
 const db = new sqlite3.Database(":memory:");
 
@@ -15,6 +15,8 @@ async function main() {
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
+    } else {
+      throw err;
     }
   }
   try {
@@ -22,6 +24,8 @@ async function main() {
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
+    } else {
+      throw err;
     }
   }
   await runQuery(db, "DROP TABLE books");
