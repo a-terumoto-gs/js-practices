@@ -11,8 +11,8 @@ function main() {
     .then(() =>
       runQuery(db, "INSERT INTO books(title) VALUES(?)", ["SampleBook"]),
     )
-    .then((book) => {
-      console.log(`id: ${book.lastID}`);
+    .then((bookID) => {
+      console.log(`id: ${bookID.lastID}`);
       return getAll(db, "SELECT * FROM books");
     })
     .then((books) => {
