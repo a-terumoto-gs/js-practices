@@ -1,4 +1,3 @@
-import minimist from "minimist";
 import Enquirer from "enquirer";
 import DB from "./db.js";
 
@@ -9,28 +8,20 @@ class MemoApp {
   }
 
   async start() {
-    const args = minimist(process.argv.slice(2));
-    const command = args._[1] || "a";
+    const args = process.argv.slice(2);
 
-    switch (command) {
-      case "a":
-        await this.addMemo();
-        break;
-      case "l":
-        await this.listMemos();
-        break;
-      case "r":
-        await this.readMemo(args._[1]);
-        break;
-      case "d":
-        await this.deleteMemo(args._[1]);
-        break;
-      default:
-        console.log("モードを選択してください");
-        break;
+    if (args.length === 0) {
+      await this.addMemo();
+    } else if (args.includes("-l")) {
+      await this.listMemos();
+    } else if (args.includes("-r")) {
+      await this.readMemo();
+    } else if (args.includes("-d")) {
+      await this.deleteMemo();
+    } else {
+      console.log("モードを選択してください");
     }
   }
-
   async addMemo() {
     const memoContent = await this.readStdin();
 
@@ -93,8 +84,8 @@ class MemoApp {
     });
 
     if (confirm) {
-      const selectedNote = memos.find((memo) =>
-        memo.content.split("\n")[0] === selectedMemo,
+      const selectedNote = memos.find(
+        (memo) => memo.content.split("\n")[0] === selectedMemo,
       );
       this.db.deleteMemo(selectedNote.id);
       console.log(`"${selectedMemo}"を削除しました`);
