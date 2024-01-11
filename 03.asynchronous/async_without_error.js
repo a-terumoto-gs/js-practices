@@ -8,10 +8,10 @@ async function main() {
     db,
     "CREATE TABLE books(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL UNIQUE)",
   );
-  const bookID = await runQuery(db, "INSERT INTO books(title) VALUES(?)", [
+  const insertResult = await runQuery(db, "INSERT INTO books(title) VALUES(?)", [
     "SampleBook",
   ]);
-  console.log(`id: ${bookID.lastID}`);
+  console.log(`id: ${insertResult.lastID}`);
   const books = await getAll(db, "SELECT * FROM books");
   console.log(`books ${JSON.stringify(books)}`);
   await runQuery(db, "DROP TABLE books");
