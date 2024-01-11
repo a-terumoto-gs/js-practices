@@ -1,9 +1,9 @@
 import Enquirer from "enquirer";
-import DB from "./db.js";
+import MemoDatabase from "./db.js";
 
 class MemoApp {
   constructor() {
-    this.db = new DB("./memos.db");
+    this.db = new MemoDatabase("./memos.db");
     this.enquirer = new Enquirer();
   }
 
