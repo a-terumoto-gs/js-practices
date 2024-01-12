@@ -1,5 +1,5 @@
 import sqlite3 from "sqlite3";
-import { runQuery, getAll, closeDb } from "./db_operation_execution.js";
+import { runQuery, getAll, closeDb } from "./sqlite3-promise-adapter.js";
 
 const db = new sqlite3.Database(":memory:");
 
