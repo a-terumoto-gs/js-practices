@@ -1,0 +1,6 @@
+{
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.settings.editor": "ui",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
